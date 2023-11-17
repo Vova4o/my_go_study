@@ -15,10 +15,28 @@
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	"constraints"
+)
 
 type Distance int32
 type Velocity float64
+
+type Number interface {
+	constraints.Float | constraints.Integer
+}
+
+func clamp[T Number](value, min, max T) T {
+	if value > max {
+		return max
+	} else if value < min {
+		return min
+	} else {
+		return value
+	}
+}
 
 // The `clamp` function returns a value that has been "clamped"
 // within a specific range of numbers. The `min` value is the

@@ -18,5 +18,30 @@ import "fmt"
 
 type Part string
 
+func printContent(prep []Part) {
+	fmt.Println("Accembly line contain:")
+	for i := 0; i < len(prep); i++ {
+		element := prep[i]
+		fmt.Println(element)
+	}
+}
+
 func main() {
+
+	assemblyLine := []Part{"Belt", "Rubber", "Motor"}
+
+	printContent(assemblyLine)
+
+	assemblyLine = append(assemblyLine, "Cover", "Roller")
+
+	fmt.Println("Add a few more parts")
+
+	printContent(assemblyLine)
+
+	assemblyLine = assemblyLine[3:]
+
+	fmt.Println("Removing first three items.")
+
+	printContent(assemblyLine)
+
 }

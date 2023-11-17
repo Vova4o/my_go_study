@@ -16,12 +16,40 @@ package main
 
 import "fmt"
 
+// --Requirements:
+// * Mathematical operations must be defined as constants using iota
+const (
+	Add = iota
+	Subtract
+	Multiply
+	Divide
+)
+
+type Operation int
+
+//   - Write a receiver function that performs the mathematical operation
+//     on two operands
+func (op Operation) calculate(oprA, oprB int) int {
+	switch op {
+	case Add:
+		return oprA + oprB
+	case Subtract:
+		return oprA - oprB
+	case Divide:
+		return oprA / oprB
+	case Multiply:
+		return oprA * oprB
+	}
+	panic("Unhandled operation")
+}
+
 func main() {
+	add := Operation(Add)
 	fmt.Println(add.calculate(2, 2)) // = 4
-
+	sub := Operation(Subtract)
 	fmt.Println(sub.calculate(10, 3)) // = 7
-
+	mul := Operation(Multiply)
 	fmt.Println(mul.calculate(3, 3)) // = 9
-
+	div := Operation(Divide)
 	fmt.Println(div.calculate(100, 2)) // = 50
 }

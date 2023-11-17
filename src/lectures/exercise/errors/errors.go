@@ -15,3 +15,22 @@
 //* Use the `errors` package to generate errors
 
 package timeparse
+
+import (
+	"fmt"
+	"time"
+)
+
+func TimeParser(str string) (time.Time, error) {
+	var new time.Time
+
+	var err error
+
+	new, err = time.Parse(time.TimeOnly, str)
+	fmt.Println("error", err)
+	if err != nil {
+		return time.Time{}, fmt.Errorf("string %v, is not time. error: %v", str, err)
+	} else {
+		return new, nil
+	}
+}
