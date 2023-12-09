@@ -58,10 +58,15 @@ func anyTwoNunmbers() (int, int) {
 func main() {
 	greet("Vladimir")
 	fmt.Println(message())
-	fmt.Println(summOfThreeNum(1, 2, 3))
+	//answer = 6
+	answer1 := summOfThreeNum(1, 2, 3)
+	// print = 6
+	fmt.Println(answer1+2)
+
 	fmt.Println(anyNumber())
 	fmt.Println(anyTwoNunmbers())
 	a, b := anyTwoNunmbers()
+	// znachenie , err := anyTwoNunmbers()
 	summOfNumbers := summOfThreeNum(a, b, anyNumber())
 	fmt.Println(summOfNumbers)
 }

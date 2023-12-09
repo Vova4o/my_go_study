@@ -15,4 +15,5 @@ func main() {
 		sum -= 5
 		fmt.Println("decrementing at 5", sum)
 	}
+	fmt.Println(sum)
 }
